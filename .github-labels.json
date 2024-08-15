@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Backlog: Epic",
+    "color": "#007FFF",
+    "description": "Aggregation of Issues that correspond to a single (often demoable) user story"
+  },
+  {
+    "name": "Backlog: Feature",
+    "color": "#5fb434",
+    "description": "Engineering deliverables that directly correspond to a business objective"
+  },
+  {
+    "name": "Backlog: Task",
+    "color": "#cc317c",
+    "description": "Does not directly contribute to a business objective but are needed for finishing an epic"
+  },
+  {
+    "name": "Task: Chore",
+    "color": "#676BFB",
+    "description": "Task that isn't directly addressing a business goal"
+  },
+  {
+    "name": "Task: Bug",
+    "color": "#b60205",
+    "description": "Something isn't working"
+  },
+  {
+    "name": "Task: Enhancement",
+    "color": "#1c82b4",
+    "description": "Enhancement on current codebase"
+  },
+  {
+    "name": "Task: Documentation",
+    "color": "#207de5",
+    "description": "Documenation is required"
+  },
+  {
+    "name": "Task: Test",
+    "color": "#FF9324",
+    "description": "Test cases are missing"
+  },
+  {
+    "name": "Priority: Critical",
+    "color": "#cc2a36",
+    "description": "Action items that Features depend on and must be completed before working on any other backlog item"
+  },
+  {
+    "name": "Priority: High",
+    "color": "#eb6841",
+    "description": "Items that must be completed for this epic to be resolved"
+  },
+  {
+    "name": "Priority: Medium",
+    "color": "#edc951",
+    "description": "Action items that are helpful and enhance the release but if needed they can be pushed back"
+  },
+  {
+    "name": "Priority: Low",
+    "color": "#00b068",
+    "description": "items with minimal priority.They should be pushed back in case we are running behind schedule"
+  },
+  {
+    "name": "Status: In-Progress",
+    "color": "#1d76db",
+    "description": "Backlog items that are under active work"
+  },
+  {
+    "name": "Status: Review-Needed",
+    "color": "#fbca04",
+    "description": "Backlog items that have been completed and are ready for validation"
+  },
+  {
+    "name": "Status: Ready",
+    "color": "#006b75",
+    "description": "Backlog items that have passed the review and can be merged"
+  },
+  {
+    "name": "Status: Blocked",
+    "color": "#ee4035",
+    "description": "Backlog items that have dependencies that are not met"
+  },
+  {
+    "name": "Status: On-Hold",
+    "color": "#ee9d35",
+    "description": "Backlog items that were stopped temporarily after an engineer started working on them"
+  },
+  {
+    "name": "Status: help-wanted",
+    "color": "#5319e7",
+    "description": "Backlog items that developers and maintainers need help with"
+  }
+]

@@ -1,0 +1,99 @@
+---
+version: "3"
+env:
+  WORKING_DIR: '{{.WORKING_DIR | default "."}}'
+vars:
+  PROJ_NAME: "{{.ROOT_DIR | dir | base}}"
+  DATE: '{{ now | date "2006-01-02" }}'
+  AICHAT_SESSION_NAME: "{{.PROJ_NAME}}-{{.DATE}}"
+# dotenv: [.env]
+includes:
+  pre-commit:
+    taskfile: "./contrib/tasks/pre-commit/Taskfile.yaml"
+    aliases: [pc]
+  utils:
+    taskfile: ./contrib/tasks/utils/Taskfile.yaml
+    internal: true
+  python:
+    taskfile: "./contrib/tasks/python/Taskfile.yaml"
+    aliases: [py]
+  ai: contrib/tasks/ai/Taskfile.yaml
+
+# ──────────────────────────────────────────────────────────────────────────────
+tasks:
+  default:
+    silent: true
+    # deps:
+    #   - pre-commit:install
+    cmds:
+      - task: utils:default
+  clean:
+    desc: "cleanup."
+    aliases: [c]
+    cmds:
+      - task: "ai:clean"
+  lint:
+    desc: "Run all linters on the codebase."
+    cmds:
+      - task: "python:lint"
+  format:
+    desc: "Format the codebase."
+    cmds:
+      - task: "python:format"
+  test:
+    desc: "Run all unit tests."
+    cmds:
+      - task: "python:test"
+  snapshot:
+    aliases: [s]
+    cmds:
+      - cmd: |
+          powershell -c '
+          $tmp = New-TemporaryFile ;
+          Remove-Item "$tmp" ;
+          New-Item -Path "$tmp" -ItemType Directory | Out-Null  ;
+          $time=Get-Date -UFormat "%Y-%m-%d-%H-%M" ;
+          $snapshot_dir="{{.ROOT_DIR}}/tmp/snapshots" ;
+          $path="${snapshot_dir}/${time}.zip" ;
+          If(!(test-path -PathType container "$(Split-Path "$path")"))
+          {
+            New-Item -ItemType Directory -Path "$(Split-Path "$path")" ;
+          }
+          $ExtensionsToExclude = "*.exe","*.pdf","*.tar","*.gz","*.zip" ;
+          $PathsToExclude      = "(.git|tmp|node_modules)" ;
+          Get-ChildItem `
+            -Recurse `
+            -Exclude $ExtensionsToExclude `
+            -Path "{{.ROOT_DIR}}" `
+          | Where-Object { $_.FullName -notmatch $PathsToExclude } `
+          | Compress-Archive -DestinationPath "$path" -Update ;
+          '
+        platforms: [windows]
+      - cmd: |
+          tmp="$(mktemp -d)" ;
+          time="$(date +'%Y-%m-%d-%H-%M')" ;
+          snapshot_dir="{{.ROOT_DIR}}/tmp/snapshots" ;
+          path="${snapshot_dir}/${time}.tar.gz" ;
+          sync ;
+          mkdir -p "${snapshot_dir}" ;
+          tar -C "{{.ROOT_DIR}}" --exclude-vcs -cpzf "${tmp}/${time}.tar.gz" .
+          mv "${tmp}/${time}.tar.gz" "${path}" ;
+          rm -rf "${tmp}" ;
+          gunzip --force "${path}" ;
+          exlude_list=(
+            "./.git/"
+            "./tmp"
+          ) ;
+          for path in "${exlude_list[@]}";do
+            if tar --list --file "${snapshot_dir}/${time}.tar" "${path}" > /dev/null 2>&1 ; then
+              tar \
+                --file "${snapshot_dir}/${time}.tar" \
+                --delete "${path}" ;
+            fi
+          done
+          gzip "${snapshot_dir}/${time}.tar" ;
+          tar -tzf  "${snapshot_dir}/${time}.tar.gz" ;
+          echo "*** snapshot created at:" ;
+          echo "" ;
+          echo "${snapshot_dir}/${time}.tar.gz" ;
+        platforms: [linux, darwin]

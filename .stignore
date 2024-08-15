@@ -1,0 +1,5 @@
+tmp
+.vagrant
+.git
+__pycache__
+__venv__

@@ -1,0 +1,58 @@
+*
+!*/
+#  ────────────────────────────────────────────────────────────────────
+!/src
+!/src/**/*.py
+#  ────────────────────────────────────────────────────────────────────
+!/contrib/**
+!/fixtures/**
+!/assets/**
+!/test/**
+!/docs/**
+!/examples/**
+#  ────────────────────────────────────────────────────────────────────
+!/**/.gitkeep
+!/**/.gitignore
+#  ────────────────────────────────────────────────────────────────────
+!/.cspell/*.txt
+!/.vscode/**
+!/.devcontainer/**
+#  ────────────────────────────────────────────────────────────────────
+!/.github/CODEOWNERS
+!/.github/dependabot.yml
+!/.github/pull_request_template.md
+!/.github/ISSUE_TEMPLATE/
+!/.github/ISSUE_TEMPLATE/*.md
+!/.github/ISSUE_TEMPLATE/*.yml
+!/.github/workflows/*.yml
+!/.github/ISSUES/**.yml
+#  ────────────────────────────────────────────────────────────────────
+!/.editorconfig
+!/.gitignore
+!/.dockerignore
+!/.gitlint
+!/cspell.config.yaml
+!/.markdownlintignore
+!/.markdownlint.yaml
+!/.stignore
+!/.versionrc
+!/.pre-commit-config.yaml
+!/.github-labels.json
+!/.gitattributes
+!/LICENSE
+!/README.md
+!/commitlint.config.js
+!/Justfile
+!/Taskfile.dist.yaml
+!/Makefile
+!/Vagrantfile
+!/docker-bake.hcl
+!/CONTRIBUTING.md
+!/CHANGELOG.md
+!/RELEASE_CHECKLIST.md
+!.yamlfmt
+!/.gitpod.yml
+!.gitmodules
+!/.pylintrc
+!/poetry.lock
+!/pyproject.toml

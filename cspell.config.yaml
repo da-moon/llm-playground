@@ -1,0 +1,11 @@
+---
+dictionaryDefinitions:
+  - name: generic
+    path: ./.cspell/generic.txt
+    addWords: true
+  - name: libs
+    path: ./.cspell/libs.txt
+    addWords: true
+dictionaries:
+  - generic
+  - libs

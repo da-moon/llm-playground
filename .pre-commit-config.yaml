@@ -1,0 +1,175 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+        args:
+          - --maxkb=1024
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: trailing-whitespace
+        args:
+          - --markdown-linebreak-ext=md
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: detect-private-key
+        exclude: .gitleaks.toml
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: check-merge-conflict
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: fix-byte-order-marker
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: check-case-conflict
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: check-executables-have-shebangs
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: check-shebang-scripts-are-executable
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: check-symlinks
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: destroyed-symlinks
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: end-of-file-fixer
+        description: >-
+          ensures that a file is either empty, or ends with one
+          newline.
+      - id: check-json
+      - id: check-toml
+      - id: check-yaml
+        exclude: .*docker-compose.*|.*gitlab-ci.*
+        args:
+          - --allow-multiple-documents
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.16.0
+    hooks:
+      - id: commitlint
+        stages:
+          - commit-msg
+        additional_dependencies:
+          - '@commitlint/config-conventional'
+        name: Ensure commit messages follow Conventional Commit
+          spec
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.41.0
+    hooks:
+      - id: markdownlint
+        language_version: system
+        name: Lint markdown Documents
+  - repo: https://github.com/syntaqx/git-hooks
+    rev: v0.0.18
+    hooks:
+      - id: shfmt
+        name: Check shell style with shfmt
+      - id: shellcheck
+        name: Shell scripts conform to shellcheck
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.5
+    hooks:
+      - id: forbid-crlf
+      - id: remove-crlf
+  - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
+    rev: 2.7.3
+    hooks:
+      - id: editorconfig-checker
+        exclude: CHANGELOG.md
+        description: >-
+          Ensure files are consistent with .editorconfig
+  - repo: https://github.com/mattlqx/pre-commit-sign
+    rev: v1.2.0
+    hooks:
+      - name: sign-commit
+        id: sign-commit
+        language_version: 3.1.0
+        stages:
+          - commit-msg
+        description: >-
+          Ensure commit messages are signed
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v8.18.3
+    hooks:
+      - id: gitleaks
+        description: >-
+          Detect hardcoded secrets using Gitleaks
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
+        description: >-
+          Lint git commit messages.
+  - repo: https://github.com/pecigonzalo/pre-commit-shfmt
+    rev: "v2.2.0"
+    hooks:
+      - id: shell-fmt
+        alias: shfmt
+        name: shfmt
+        args:
+          - --write
+          - --diff
+          - --binary-next-line
+          - --keep-padding
+          - --indent=2
+        description: >-
+          Rewrites all shell scripts to a canonical format.
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: "v0.10.0"
+    hooks:
+      - id: shellcheck
+        name: shellcheck
+        alias: shellcheck
+        args:
+          - --severity=warning
+        description: >-
+          Lint and validate shell scripts
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.12.1
+    hooks:
+      - name: yamlfmt
+        id: yamlfmt
+        args:
+          - -conf
+          - .yamlfmt
+        description: >-
+          Ensure YAML files are formatted
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.35.1
+    hooks:
+      - id: yamllint
+        name: yamllint
+        exclude: |
+          .*docker-compose.*|Taskfile.*.yaml|.*\.github\/workflows\/.*\.yml
+        args:
+          - --format
+          - parsable
+          - --strict
+        description: >-
+          Ensure YAML files are valid
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.22.4
+    hooks:
+      - name: types
+        id: typos

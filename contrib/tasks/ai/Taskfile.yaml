@@ -1,0 +1,80 @@
+
+
+version: "3"
+env:
+  WORKING_DIR: '{{.WORKING_DIR | default "."}}'
+vars:
+  PROJ_NAME: "{{.ROOT_DIR | dir | base}}"
+  DATE: '{{ now | date "2006-01-02" }}'
+  AICHAT_SESSION_NAME: "{{.PROJ_NAME}}-{{.DATE}}"
+# dotenv: [.env]
+includes:
+  utils:
+    taskfile: "../utils/Taskfile.yaml"
+    internal: true
+
+# ──────────────────────────────────────────────────────────────────────────────
+tasks:
+  clean:
+    deps: [utils:clean]
+    aliases: [c]
+    cmds:
+      - cmd: |
+          rm -f "${HOME}/.config/aichat/sessions/{{.AICHAT_SESSION_NAME}}.yaml"
+  flatten:
+    deps: [clean]
+    aliases: [f,oxc,flat]
+    env:
+      RUST_LOG: trace
+    cmds:
+      - cmd: |
+          oxc init \
+            --exclude "CHANGELOG.md"  \
+            --exclude "docker-compose.yml"  \
+            --exclude "Dockerfile"  \
+            --exclude ".venv/**"  \
+            --exclude ".oxc/**"  \
+            --exclude "*.txt"  \
+            --exclude "*.lock" \
+            --exclude "contrib/**" \
+            --exclude "**/__pycache__/**" \
+            --exclude "tmp/**" \
+            --exclude "examples/**" \
+            --exclude "tests/**" \
+            --exclude ".task/**" \
+            --exclude "app/*.sqlite" \
+            --exclude "*.sqlite" \
+            --exclude "*.db" \
+            --exclude "*.ini" \
+            --exclude "**/*.sqlite" \
+            --exclude ".devcontainer/**" \
+            --exclude ".vscode/**" \
+            --exclude "Taskfile.dist.yaml";
+    generates:
+      - .oxc/output_flat.yml
+    preconditions:
+    - sh: oxc --version
+      msg: "`oxc` was not found in PATH"
+  init:
+    deps: [flatten]
+    aliases: [init,i]
+    cmds:
+      - cmd: |
+          aichat \
+            --role "python" \
+            --file ".oxc/output_flat.yml" \
+            --session "{{.AICHAT_SESSION_NAME}}" \
+            --prompt "the attached yaml file is complete codebase. Understand it's content. Do not take any actions unless requested. respond with nothing unless explicitly asked" ;
+    preconditions:
+    - sh: aichat --version
+      msg: "`aichat` was not found in PATH"
+ 
+  session:
+    aliases: [s]
+    cmds:
+      - cmd: |
+          aichat --role python --session "{{.AICHAT_SESSION_NAME}}"
+    preconditions:
+      - sh: aichat --version
+        msg: "`aichat` was not found in PATH"
+      - "[ -r .oxc/output_flat.yml ] && exit 0 || exit 1"

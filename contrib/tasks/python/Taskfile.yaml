@@ -1,0 +1,37 @@
+version: "3"
+vars:
+  LOG_FILE: "{{.ROOT_DIR}}/logs/app.log"
+  LOG_LEVEL: "DEBUG"
+
+tasks:
+  lint:
+    desc: "Run linters on the codebase."
+    cmds:
+      - "poetry run flake8 ."
+      - "poetry run black --check ."
+      - "poetry run mypy ."
+    preconditions:
+      - sh: "command -v poetry"
+    aliases: ["linter", "linting"]
+
+  format:
+    desc: "Format the codebase using black."
+    aliases: [f]
+    cmds:
+      - "poetry run black ."
+    preconditions:
+      - sh: "command -v poetry"
+  fix-imports:
+    desc: "remove all unused imports"
+    aliases: [i,fi]
+    cmds:
+      - "autoflake --in-place --recursive --remove-all-unused-imports --ignore-init-module-imports ."
+    preconditions:
+      - sh: "command -v poetry"
+  test:
+    desc: "Run unit tests."
+    cmds:
+      - "poetry run pytest"
+    preconditions:
+      - sh: "command -v poetry"
+
