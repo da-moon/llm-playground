@@ -1,0 +1,11 @@
+!/*.ipynb
+!/pyproject.toml
+!/poetry.toml
+!/poetry.lock
+!/aimakerspace
+!/aimakerspace/*.py
+!/aimakerspace/**/*.py
+!/data/*.txt
+!/data/*.md
+!/data/*.pdf
+!/images/*.png

@@ -1,0 +1,20 @@
+{
+  
+  "recommendations": [
+    "karyfoundation.comment",
+    "ms-azuretools.vscode-docker",
+    "ms-python.vscode-pylance",
+    "stkb.rewrap",
+    "jannisx11.batch-rename-extension",
+    "wmaurer.change-case",
+    "editorconfig.editorconfig",
+    "ms-python.isort",
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
+    "bierner.markdown-shiki",
+    "chrislajoie.vscode-modelines",
+    "mutantdino.resourcemonitor",
+    "ms-python.mypy-type-checker",
+    "ms-python.black-formatter"
+  ]
+}

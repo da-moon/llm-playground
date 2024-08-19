@@ -1,12 +1,9 @@
 [tool.poetry]
-name = "llm-playground"
+name = "pythonic-rag"
 version = "0.1.0"
-description = "LLM-Playground"
+description = "Pythonic Rag Notebook"
 authors = ["da-moon <contact@havi.dev>"]
-# packages = [
-#        { include = "app" },
-#    ]
-
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -14,24 +11,20 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.14"
+numpy = "^2.0.1"
+openai = "^1.41.0"
+python-dotenv = "^1.0.1"
+pandas = "^2.2.2"
+scikit-learn = "^1.5.1"
+ipykernel = "^6.29.5"
+matplotlib = "^3.9.2"
+plotly = "^5.23.0"
+pypdf2 = "^3.0.1"
 
-pex = "^2.16.1"
-flake8 = "^7.1.1"
-black = "^24.8.0"
-mypy = "^1.11.1"
-pytest = "^8.3.2"
-pytest-asyncio = "^0.23.8"
-bcrypt = "^4.2.0"
-colorama = "^0.4.6"
 
 [tool.poetry.group.dev.dependencies]
-pex = "^2.16.1"
-flake8 = "^7.1.1"
-black = "^24.8.0"
-mypy = "^1.11.1"
-pytest = "^8.3.2"
-pytest-asyncio = "^0.23.8"
-bump-pydantic = "^0.8.0"
+jupyter = "^1.0.0"
+sourcery = "^1.22.0"
 
 
 [tool.black]
@@ -60,3 +53,6 @@ force_grid_wrap = 0
 use_parentheses = true
 ensure_newline_before_comments = true
 line_length = 88
+
+[tool.poetry.scripts]
+start = "poetry run jupyter notebook"
