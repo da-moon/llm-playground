@@ -1,3 +1,6 @@
 [submodule "docs"]
 	path = docs
 	url = git@github.com:da-moon/llm-playground.wiki
+[submodule "src/chainlit-rag-poc"]
+	path = src/chainlit-rag-poc
+	url = git@hf.co:spaces/fjolsvin/chainlit-rag-poc
