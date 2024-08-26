@@ -1,29 +1,30 @@
 [tool.poetry]
-name = "pythonic-rag"
+name = "langchain-intro"
 version = "0.1.0"
-description = "Pythonic Rag Notebook"
+description = "Langchain introduction"
 authors = ["da-moon <contact@havi.dev>"]
 package-mode = false
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.14"
-numpy = "^2.0.1"
-openai = "^1.41.0"
-python-dotenv = "^1.0.1"
-pandas = "^2.2.2"
-scikit-learn = "^1.5.1"
-ipykernel = "^6.29.5"
-matplotlib = "^3.9.2"
-plotly = "^5.23.0"
-pypdf2 = "^3.0.1"
-
+python = ">=3.11,<3.14"
+qdrant-client = "^1.11.1"
+langchain = "^0.2.14"
+langchain-core = "^0.2.35"
+langchain-community = "^0.2.12"
+langchain-openai = "^0.1.22"
+tiktoken = "^0.7.0"
+pymupdf = "^1.24.9"
+getpass4 = "^0.0.14.1"
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
+ipykernel = "^6.29.5"
+
 
 
 [tool.black]

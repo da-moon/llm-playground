@@ -1,29 +1,37 @@
 [tool.poetry]
-name = "pythonic-rag"
+name = "langsmith-intro"
 version = "0.1.0"
-description = "Pythonic Rag Notebook"
+description = "Langsmit introduction"
 authors = ["da-moon <contact@havi.dev>"]
 package-mode = false
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.14"
-numpy = "^2.0.1"
-openai = "^1.41.0"
-python-dotenv = "^1.0.1"
+python = ">=3.11,<3.14"
+langchain-core = "^0.2.35"
+langchain-openai = "^0.1.22"
+langchain-community = "^0.2.12"
+langchain-qdrant = "^0.1.3"
+qdrant-client = "^1.11.1"
+langsmith = "^0.1.104"
+openai = "^1.42.0"
+tiktoken = "^0.7.0"
+cohere = "^5.8.1"
+lxml = "^5.3.0"
+nest-asyncio = "^1.6.0"
+getpass4 = "^0.0.14.1"
+grandalf = "^0.8"
+uuid = "^1.30"
 pandas = "^2.2.2"
-scikit-learn = "^1.5.1"
-ipykernel = "^6.29.5"
-matplotlib = "^3.9.2"
-plotly = "^5.23.0"
-pypdf2 = "^3.0.1"
-
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
+ipykernel = "^6.29.5"
+
 
 
 [tool.black]
