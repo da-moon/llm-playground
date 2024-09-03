@@ -47,6 +47,7 @@
 !/.gitattributes
 !/LICENSE
 !/README.md
+!/QUESTIONS.md
 !/commitlint.config.js
 !/Justfile
 !/Taskfile.dist.yaml
