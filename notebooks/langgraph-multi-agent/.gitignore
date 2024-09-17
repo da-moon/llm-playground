@@ -1,0 +1,5 @@
+!/*.ipynb
+!/docs/*.md
+!/pyproject.toml
+!/poetry.toml
+!/poetry.lock

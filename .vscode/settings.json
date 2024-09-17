@@ -6,7 +6,7 @@
     "source.fixAll.convertImportFormat": "always",
     "source.organizeImports": "always",
   },
-  "terminal.integrated.defaultProfile.linux": "poetry",
+  "terminal.integrated.defaultProfile.linux": "bash",
   // source "$(poetry env use $(which python) > /dev/null 2>&1 && poetry config virtualenvs.in-project false --local && poetry env info --path)/bin/activate"
   "terminal.integrated.env.linux": {
     // "VSCODE_INJECTION": "1",
@@ -19,19 +19,19 @@
       "args": [
         "-i"
       ]
-    },
-    "poetry": {
-      "overrideName": true,
-      "icon": "snake",
-      "color": "terminal.ansiCyan",
-      "args": [
-        "-l",
-        "-i",
-        "-c",
-        "poetry shell || { bash -i ; }"
-      ],
-      "path": "bash"
     }
+  //   "poetry": {
+  //     "overrideName": true,
+  //     "icon": "snake",
+  //     "color": "terminal.ansiCyan",
+  //     "args": [
+  //       "-l",
+  //       "-i",
+  //       "-c",
+  //       "poetry shell || { bash -i ; }"
+  //     ],
+  //     "path": "bash"
+  //   }
   },
   "files.exclude": {
     "**/.venv": true,

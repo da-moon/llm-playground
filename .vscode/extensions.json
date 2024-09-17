@@ -1,5 +1,5 @@
 {
-  
+
   "recommendations": [
     "karyfoundation.comment",
     "ms-azuretools.vscode-docker",
@@ -15,6 +15,9 @@
     "chrislajoie.vscode-modelines",
     "mutantdino.resourcemonitor",
     "ms-python.mypy-type-checker",
-    "ms-python.black-formatter"
+    "ms-python.black-formatter",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.vscode-jupyter-powertoys",
+    "ms-toolsai.jupyter-hub"
   ]
 }

@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "langgraph-multi-agent"
+version = "0.1.0"
+description = "Multiagent RAG with Langgraph"
+authors = ["da-moon <contact@havi.dev>"]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.14"
+getpass4 = "^0.0.14.1"
+langgraph = "^0.2.16"
+langchain = "^0.2.15"
+langchain-openai = "^0.1.23"
+langchain-experimental = "^0.0.64"
+qdrant-client = "^1.11.1"
+pymupdf = "^1.24.10"
+tiktoken = "^0.7.0"
+python-mermaid = "^0.1.3"
+arxiv = "^2.1.3"
+pypdf = "^4.3.1"
+pypdfium2 = "^4.30.0"
+tavily-python = "^0.4.0"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+ipykernel = "^6.29.5"
+
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
