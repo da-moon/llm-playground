@@ -75,6 +75,12 @@
     },
     "editor.formatOnSave": true
   },
+  "[markdown]": {
+    "editor.tabSize": 2
+  },
+  "notebook.codeActionsOnSave": {
+    "source.formatDocument": true
+  },
   // Important to follow the config in pyrightconfig.json
   "python.analysis.useLibraryCodeForTypes": false,
   "python.terminal.activateEnvironment": true,
@@ -100,5 +106,8 @@
     "--check-untyped-defs",
     "--no-implicit-optional"
   ],
-  "python.analysis.autoImportCompletions": true
+  "python.analysis.autoImportCompletions": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  }
 }

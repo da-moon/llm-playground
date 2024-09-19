@@ -1,0 +1,82 @@
+[tool.poetry]
+name = "fine-tuning-embedding-models"
+version = "0.1.0"
+description = "Fine-tuning emmbedding models for RAG assignment"
+authors = ["da-moon <contact@havi.dev>"]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# poetry add faiss-cpu unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' sentence-transformers datasets pyarrow ragas loguru gitpython
+# poetry add faiss-cpu unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' sentence-transformers datasets pyarrow ragas loguru gitpython
+# poetry add faiss-cpu unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' sentence-transformers datasets pyarrow ragas loguru gitpython
+# poetry add 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' loguru gitpython ragas
+# poetry add sentence-transformers
+[tool.poetry.dependencies]
+python = ">=3.9.0,<3.13"
+loguru = "^0.7.2"
+gitpython = "^3.1.43"
+torch = {version = "2.1.0", source = "pytorch"}
+torchvision = {version = "0.16", source = "pytorch"}
+torchaudio = {version = "2.1.0", source = "pytorch"}
+numpy = "<2.0.0"
+transformers = "4.40.0"
+faiss-cpu = "1.8.0.post1"
+accelerate = "0.27.2"
+unstructured = "0.15.7"
+python-pptx = "1.0.2"
+nltk = "3.9.1"
+datasets = "3.0.0"
+pyarrow = "17.0.0"
+sentence-transformers = "2.7.0"
+langchain-huggingface = "0.1.0"
+langchain = "0.3.0"
+langchain-core = "0.3.1"
+langchain-text-splitters = "0.3.0"
+ragas = "0.1.19"
+langchain-openai = "0.2.0"
+langchain-community = "0.3.0"
+
+[tool.poetry.group.dev.dependencies]
+jupyter = "^1.0.0"
+ipykernel = "^6.29.5"
+jupyter-black = "^0.4.0"
+black = "^24.8.0"
+
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
+
+# find cuda version
+# nvcc --version
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu118"
+priority = "explicit"

@@ -1,0 +1,49 @@
+[virtualenvs]
+in-project = false
+create = true
+# poetry export -f requirements.txt --output requirements.txt
+# poetry run python -c 'import torch; print(torch.__version__)'
+# poetry run python -m ipykernel install --user --name="$(basename $(poetry env info -p))"
+# poetry run python -m ipykernel install --user --name=".venv"
+# jupyter kernelspec list
+# jupyter kernelspec uninstall -y "$(basename $(poetry env info -p) | tr '[:upper:]' '[:lower:]')"
+# poetry env remove "$(basename $(poetry env info -p))"
+# jupyter kernelspec uninstall -y ".venv"
+# pydantic==1.10.9
+# pip install -U faiss-cpu accelerate==0.27.2 unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 loguru langchain_openai langchain-huggingface langchain-core langchain langchain-community langchain-text-splitters ragas  datasets pyarrow
+# pip install  --upgrade accelerate
+
+
+# poetry add faiss-cpu accelerate==0.27.2 unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 datasets pyarrow
+# langchain_openai langchain-huggingface
+#  langchain-core langchain langchain-community langchain-text-splitters ragas
+# poetry add
+# pip install -U 'sentence-transformers>=2.7.0' 'transformers>=4.30.2'
+
+
+# poetry add 'torch==2.1.0' 'torchvision=0.16' 'torchaudio==2.1.0'
+
+# NOTE: install PyTorch with CUDA 11.8 support, which is compatible with
+# CUDA 12.0 or 12.1 installation
+
+
+
+# langchain-openai = "<0.2"
+# langchain-huggingface = "<0.3"
+# langchain = "<0.3"
+# langchain-core = "<0.3"
+# langchain-community = "<0.3"
+# langchain-text-splitters = "<0.3"
+# ragas = "^0.1.20"
+
+
+# faiss-cpu = "^1.8.0.post1"
+# accelerate = "0.27.2"
+# unstructured = "0.15.7"
+# python-pptx = "1.0.2"
+# nltk = "3.9.1"
+# datasets = "^3.0.0"
+# pyarrow = "^17.0.0"
+# gitpython = "^3.1.43"
+# sentence-transformers = ">2.7"
+# transformers = ">4.39  <4.40"
