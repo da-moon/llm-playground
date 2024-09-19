@@ -11,7 +11,12 @@
 !/notebooks/**/pyproject.toml
 !/notebooks/**/poetry.lock
 #  ────────────────────────────────────────────────────────────────────
+!/contrib/
 !/contrib/**
+!/contrib/**/
+!/contrib/*/
+!/contrib/*/Dockerfile
+#  ────────────────────────────────────────────────────────────────────
 !/fixtures/**
 !/assets/**
 !/test/**

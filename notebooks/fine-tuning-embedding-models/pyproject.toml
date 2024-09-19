@@ -9,11 +9,6 @@ package-mode = false
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-# poetry add faiss-cpu unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' sentence-transformers datasets pyarrow ragas loguru gitpython
-# poetry add faiss-cpu unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' sentence-transformers datasets pyarrow ragas loguru gitpython
-# poetry add faiss-cpu unstructured==0.15.7 python-pptx==1.0.2 nltk==3.9.1 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' sentence-transformers datasets pyarrow ragas loguru gitpython
-# poetry add 'langchain-openai<0.2' 'langchain-huggingface<0.3' 'langchain<0.3' 'langchain-core<0.3' 'langchain-community<0.3' 'langchain-text-splitters<0.3' loguru gitpython ragas
-# poetry add sentence-transformers
 [tool.poetry.dependencies]
 python = ">=3.9.0,<3.13"
 loguru = "^0.7.2"
